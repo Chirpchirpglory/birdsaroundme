@@ -1,7 +1,7 @@
 $(function () {
     // Initialize OAuth with the public key. This will be something twitter gives to you when you sign up for an app
     // at http://twitter.com/apps
-    OAuth.initialize('Mvc4CEa3YKch5c1lgq69zZtuz');
+    OAuth.initialize('Mvc4CEa3YKch5c1lgq69zZtuz'); //My own costumer key
 
     $('#oauth-connect button').click(function (e) {
         e.preventDefault();
