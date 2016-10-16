@@ -3,6 +3,20 @@
   <head>
    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+
+<!-- start: code from index.html – client-side-oauth-example-gh-pages
+ -->    
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="library/bootstrap.css">
+    <link rel="stylesheet" href="css/mystyles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="library/bootstrap.min.js"></script>
+    <script src="library/oauth.js"></script>
+    <script src="javascripts/oauth-boilerplate.js"></script>
+<!-- end: code from index.html – client-side-oauth-example-gh-pages
+ -->    
+
     <meta name="tweets" content="tweets, live, neighborhood, location">
     <link rel="stylesheet" type="text/css" href="mystyles.css" media="all">
     <link rel="start" href="http://wiki.selfhtml.org/wiki/Doku:HTML" title="HTML-Dokumentation">
@@ -14,12 +28,18 @@
 
 <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
+<!-- mapbox GL JS -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.24.0/mapbox-gl.css' rel='stylesheet' />
+
   </head>
   <body>
 
   <div class="layout">
+
+
   
-  <img src="/Users/gloriabiberger/www/birds-around/img/birds-around-logo.png" width="5%" height="5%" align="left">
++  <img src="https://cloud.githubusercontent.com/assets/21042100/18797153/de3bec40-81cc-11e6-8113-0729541e74b5.png" width="5%" height="5%" align="left">
     <h1>&nbsp; All the birds around me</h1>   
 
 
@@ -30,18 +50,43 @@
     <h3>See all tweets around you and find out what happens interesting just in this moment, maybe already at the next corner.</h3>
 
 
+<!-- start: code button from client-side-oauth-example
+ -->    
+    <div class="container">
+    <div class="row">
+        <div class="col col-lg-3">
+            <div>
+            </div>
+            <div style="clear: right; padding-top: 5px;" id="oauth-connect">
+                <button class="btn btn-block btn-default">
+                <span>
+                  <img src="https://oauth.io/api/providers/twitter/logo" width="32" height="32" class="pull-left">
+                  <span>Connect with Twitter</span>
+                </span>
+                </button>
+            </div>
+        </div>
+    </div>
+<!-- end: code button from client-side-oauth-example
+ -->
+</br></br>
 
+
+<div class="responsiveContainer">
+
+<!-- mapbox-map -->
+<div id='map' style='width: 800px; height: 600px;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2hpcnBjaGlycGdsb3J5IiwiYSI6ImNpdGc5ZnhqMDAwY2szeG81ejAyc2J4dmUifQ.ZObyamdlD5wT18s2fmVU4Q';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/chirpchirpglory/citg9j6p400052jkczg04sjk1'
+});
+</script>
+</div>
+    <script src="map.js"></script>
 
        
-<div class="responsiveContainer">
-  	<script src="map.js"></script>
-
- 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEhxq8VmQYu7JULzYzrKeZoxcwEyiV4Uo&libraries=places&callback=initAutocomplete" async defer></script>
-
-
-	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d310844.0805017142!2d13.42473175!3d52.5068441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1474220935955" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-</div>
 </div>
 
   </body>
